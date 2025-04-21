@@ -7,15 +7,14 @@ import se.yrgo.domain.Call;
 import se.yrgo.domain.Customer;
 
 public class CustomerManagementMockImpl implements CustomerManagementService {
-	private HashMap<String,Customer> customerMap;
+	private HashMap<String, Customer> customerMap;
 
 	public CustomerManagementMockImpl() {
-		customerMap = new HashMap<String,Customer>();
-		customerMap.put("OB74", new Customer("OB74" ,"Fargo Ltd", "some notes"));
-		customerMap.put("NV10", new Customer("NV10" ,"North Ltd", "some other notes"));
-		customerMap.put("RM210", new Customer("RM210" ,"River Ltd", "some more notes"));
+		customerMap = new HashMap<String, Customer>();
+		customerMap.put("OB74", new Customer("OB74", "Fargo Ltd", "some notes"));
+		customerMap.put("NV10", new Customer("NV10", "North Ltd", "some other notes"));
+		customerMap.put("RM210", new Customer("RM210", "River Ltd", "some more notes"));
 	}
-
 
 	@Override
 	public void newCustomer(Customer newCustomer) {
@@ -54,8 +53,8 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 
 	@Override
 	public void recordCall(String customerId, Call callDetails) throws CustomerNotFoundException {
-		//First find the customer
-		//Call the addCall on the customer
+		// First find the customer
+		// Call the addCall on the customer
 		this.customerMap.get(customerId).addCall(callDetails);
 	}
 
