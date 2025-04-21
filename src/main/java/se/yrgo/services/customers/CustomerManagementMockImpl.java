@@ -19,51 +19,45 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 
 	@Override
 	public void newCustomer(Customer newCustomer) {
-
+		this.customerMap.put(newCustomer.getCustomerId(), newCustomer);
 	}
 
 	@Override
 	public void updateCustomer(Customer changedCustomer) {
-
-
+		this.customerMap.replace(changedCustomer.getCustomerId(), changedCustomer);
 	}
 
 	@Override
 	public void deleteCustomer(Customer oldCustomer) {
-		// TODO Auto-generated method stub
+		this.customerMap.remove(oldCustomer.getCustomerId());
 
 	}
 
 	@Override
 	public Customer findCustomerById(String customerId) throws CustomerNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		return this.customerMap.get(customerId);
 	}
 
 	@Override
 	public List<Customer> findCustomersByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.customerMap.values().stream().filter(c -> c.getCompanyName().equals(name)).toList();
 	}
 
 	@Override
 	public List<Customer> getAllCustomers() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.customerMap.values().stream().toList();
 	}
 
 	@Override
 	public Customer getFullCustomerDetail(String customerId) throws CustomerNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
+		return this.customerMap.get(customerId);
 	}
 
 	@Override
 	public void recordCall(String customerId, Call callDetails) throws CustomerNotFoundException {
 		//First find the customer
-
 		//Call the addCall on the customer
-
+		this.customerMap.get(customerId).addCall(callDetails);
 	}
 
 }
