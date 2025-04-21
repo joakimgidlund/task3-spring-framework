@@ -4,5 +4,6 @@
 <beans>
 
 	<!-- add your bean definitions here! -->
-
+    <bean id="customerManagementService" class="se.yrgo.services.customers.CustomerManagementMockImpl">
+    </bean>
 </beans>
