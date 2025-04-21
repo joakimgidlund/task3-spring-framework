@@ -30,7 +30,6 @@ public class CustomerManagementMockImpl implements CustomerManagementService {
 	@Override
 	public void deleteCustomer(Customer oldCustomer) {
 		this.customerMap.remove(oldCustomer.getCustomerId());
-
 	}
 
 	@Override
