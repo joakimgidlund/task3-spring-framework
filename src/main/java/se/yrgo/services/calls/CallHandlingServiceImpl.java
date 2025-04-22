@@ -20,10 +20,10 @@ public class CallHandlingServiceImpl implements CallHandlingService {
 
     @Override
     public void recordCall(String customerId, Call newCall, Collection<Action> actions) throws CustomerNotFoundException {
-        customerManagementService.findCustomerById(customerId).addCall(newCall);
+        customerManagementService.recordCall(customerId, newCall);
 
         for(Action a : actions) {
             diaryManagementService.recordAction(a);
         }
-    }    
+    }
 }
